@@ -16,9 +16,9 @@ jobs:
       - uses: appleboy/ssh-action@master
         name: executing remote ssh commands using password
         with:
-         host: ${{secrets.SSH_HOSTS}}
-         password: ${{secrets.SSH_PASSWORDS}}
-         username: ${{secrets.SSH_USERNAMES}}
+         host: ${{secrets.SSH_HOST}}
+         password: ${{secrets.SSH_PASSWORD}}
+         username: ${{secrets.SSH_USERNAME}}
 
          script: |
           cd /var/www/decathlon/react_design-main
