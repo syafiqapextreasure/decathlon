@@ -1,0 +1,78 @@
+.sidebar{
+    flex: 1;
+    min-height: 100vh;
+    border-right: 1px solid #E1E3E5;
+    max-width: 15rem;
+    ul li{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+        margin: 1rem 0;
+        cursor: pointer;
+    }
+}
+
+.logo{
+   height: 3.5rem;
+   font-size: 2rem;
+   font-weight: 900;
+   border-bottom: 1px solid #e1e3e5;
+   text-align: center;
+}
+
+.items{
+    padding: 0.6rem 0 0.6rem 0.6rem;
+    margin-top: 1.2rem;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li .icon{
+    font-size: 1.4rem;
+    color: #6F767E;
+}
+
+ul li span{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 3%;
+    color: #6F767E
+}
+
+ul li.active{
+    border-right: 5px solid #1482c2;
+}
+
+ul li.active .icon{
+    color: #1482c2;
+}
+
+ul li.active span{
+    color: #1482c2;
+}
+
+ul li:hover .icon{
+    color: #1482c2;
+}
+
+ul li:hover span{
+    color: #1482c2;
+}
+
+.logout{
+    color: #ff0000;
+}
+.collapse-menu{
+    padding-left: 1.5rem;
+    ul{
+        padding:0!important;
+    }
+    li{
+        margin-top:0rem!important;
+        margin-bottom:0rem!important;
+    }
+}

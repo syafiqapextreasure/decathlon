@@ -1,0 +1,17 @@
+.chartContainer{
+    padding: 0.2rem;
+    border-radius: 3px;
+    border: 1px solid #e1e1e3;
+}
+
+.chartHeading{
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+#chart{
+    border: 1px solid #e1e1e3;
+    margin-top: 5px;
+}

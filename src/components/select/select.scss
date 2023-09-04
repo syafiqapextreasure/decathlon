@@ -1,0 +1,38 @@
+.custom-form-select {
+    padding: 20px 5px 0px;
+
+    .custom-select-label {
+        /* font-family: Public Sans; */
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.25rem;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #374151;
+        padding-bottom: 5px;
+    }
+
+    .custom-select-field {
+        border-radius: 6px;
+        border: #D1D5DB 1px solid;
+        width: 80%;
+        height: 38px;
+        padding: 9px 13px 9px 13px;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        font-weight: 400;
+        color: #6B7280;
+    }
+
+    .label-select{
+        height: 2rem;
+        line-height: 2rem;
+        width:15rem;
+    }
+    .label-select-field{
+        height: 2rem;
+        line-height: 2rem;
+        padding:0rem 0.5rem;
+        width:calc(100% - 15rem);
+    }
+}

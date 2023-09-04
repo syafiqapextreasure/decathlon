@@ -1,0 +1,160 @@
+@media screen and (min-width: 1600px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1601px) and (max-width: 1680px) {
+    html {
+        font-size: 15px;
+    }
+#patient-head-info{
+    padding-top:0.3rem;
+}
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1600px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1368px) and (max-width: 1440px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1367px) {
+    html {
+        font-size: 12.5px;
+    }
+}
+
+@media screen and  (max-width: 1299px) {
+    html {
+        font-size: 11px;
+    }
+}
+.main-body{
+    width: calc(100% - 15rem);
+}
+.text-right-spec{
+    justify-content: end;
+}
+.hamburger-menu{
+    display: none;
+}
+@media screen and  (max-width: 768px) {
+    .main-body{
+        width: 100%;
+    }
+    .sidebar{
+        display: none;
+    }
+    .text-right-spec{
+        justify-content: flex-start;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+}
+
+
+.content-body{
+    padding:2rem;
+}
+.row{
+    margin-bottom: 1.5rem;
+}
+button{
+    margin-right: 0.5rem;
+    padding-left:1.5rem!important;
+    padding-right:1.5rem!important;
+    margin-bottom: 0.5rem;
+}
+
+.border-none{
+    border: none;
+}
+
+.border-top-none{
+    border-top: none;
+}
+
+.w-50{
+    width: 50%; 
+}
+
+.w-18{
+    width: 21%; 
+}
+
+.w-15{
+    width: 14.66%; 
+}
+
+
+.start{
+    text-align: start!important;
+}
+
+.color-red{
+    color: #ff5138;
+}
+
+.bg-red{
+    background-color: #ff5138;
+}
+
+.color-green{
+    background-color: #85b43e;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.no-padding{
+    padding: 0 !important;
+}
+
+.border-right{
+    border-right: 1px solid #000;
+}
+
+.bg-grey{
+    background-color: #c4c4c4;
+}
+
+.color-white{
+    color: #fff;
+}
+
+.border-table{
+    border:1px solid #CCC;
+
+    th, td{
+        padding:0.5rem
+    }
+}
+.table-even-odd{
+    tr:nth-child(even) {
+        td{
+            background-color: #F2F2F2;
+        }
+    }
+}
+input{
+    padding:0.5rem;
+    border-radius: 0.375rem;
+}
+.clickable{
+    cursor: pointer;
+}
+.color-td{
+    width:6rem;
+}

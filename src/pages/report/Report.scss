@@ -1,0 +1,17 @@
+.column-list-drop{
+    position: absolute;
+    text-align: left;
+    border: 1px solid #C4C4C4;
+    padding:0.5rem;
+    padding-left:1rem;
+    padding-right:1rem;
+    font-weight: 400;
+    background-color: white;
+    width: 90%;
+    div{
+        cursor: pointer;
+    }
+    div:hover{
+        background-color: #F2F2F2;
+    }
+}

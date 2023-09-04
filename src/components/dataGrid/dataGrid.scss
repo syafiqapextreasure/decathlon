@@ -1,0 +1,93 @@
+.custom-grid{
+    width: 100%;
+    border: 1px solid #222;
+}
+
+.custom-grid .ag-root .ag-body {
+    overflow: hidden !important;
+}
+  
+.custom-grid .ag-root .ag-body-viewport {
+    overflow: hidden !important;
+}
+
+.custom-grid .ag-cell {
+    border-bottom: 1px solid #000;
+}
+
+.header-black {
+    background-color: black;
+    color: white;
+}
+
+
+.header-orange {
+    background-color: #ff9900;
+    color: black;
+}
+
+.header-red {
+    background-color: #ff5138;
+    color: black;
+}
+
+.header-green {
+    background-color: #0ab130;
+    color: black;
+}
+
+.header-gray {
+    background-color: #606060;
+    color: white;
+}
+
+.custom-grid{
+    overflow-x: auto;
+    table {
+        border-collapse: collapse;
+        // width: 100%;
+    }
+    
+    th, td {
+        border: 1px solid black!important;
+        padding: 0.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.5rem;
+        text-align: center;
+    }
+}
+
+.top{
+    width: 33.33%;
+}
+
+.df{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.inactive{
+    margin-top: 20px;
+    border: 1px solid #000;
+}
+
+.inactive-members{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-teammate{
+    height: 10px;
+    width: 10px;
+    padding: 1px 4px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.m-top{
+    margin-top: 20px;
+}

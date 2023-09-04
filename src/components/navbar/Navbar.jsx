@@ -1,0 +1,64 @@
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { NotificationsNoneOutlined, KeyboardArrowDownOutlined } from '@mui/icons-material';
+import Mobilemenu from "./Mobilemenu";
+import "./navbar.scss";
+import avatar_img from "../../asset/replace_img.png";
+
+const Navbar = () => {
+  const [currentPage, setCurrentPage] = useState('General');
+  const [brumb, setBrumb] = useState('');
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    const pageName = path.substring(1);
+    let main_page = null;
+    let brumb = '';
+    if (pageName){
+      let pageName_arr = pageName.split('/');
+      main_page = pageName_arr[pageName_arr.length - 1].replaceAll('-', ' ');
+      if (pageName_arr.length > 1){
+        pageName_arr.map((item, index) => {
+          if (index === 0){
+            brumb += item.replaceAll('-', ' ');
+          } else {
+            brumb += ' > ' + item.replaceAll('-', ' ');
+          }
+        })
+      }
+    }
+    setCurrentPage(main_page || 'General');
+    setBrumb(brumb);
+  }, [location]);
+  return (
+    <div className='top-navbar'>
+        <div className="wrapper">
+          <div className='d-flex'>
+            <Mobilemenu/>
+            <div>
+              <div className="heading">
+                {currentPage}
+              </div>
+              {brumb !== '' && (
+                <div style={{color:'#6F767E', fontSize:'0.6rem'}}>{brumb}</div>
+              )}
+            </div>
+            
+          </div>
+          <div className="userInfo">
+              <NotificationsNoneOutlined />
+              <div className="image">
+              <img src={avatar_img} alt="" className='image' />
+              </div>
+              <div className="role">Admin | Maryam
+              <KeyboardArrowDownOutlined />
+              </div>
+              
+          </div>
+        </div>
+    </div>
+  )
+}
+
+export default Navbar

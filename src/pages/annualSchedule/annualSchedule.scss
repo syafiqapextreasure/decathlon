@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+}
+
+.mainContainer{
+    flex: 6;
+}
+
+.content{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.toggle-btn-group{
+    margin-right: 1rem;
+    button{
+        margin-bottom: 0.5rem;
+        border:1px dotted #1482C2!important;
+    }
+    .selected{
+        background-color: #F5FCF7!important;
+        color: #1482C2!important;
+        border:1px solid #1482C2!important;
+    }
+}

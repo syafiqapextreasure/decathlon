@@ -1,0 +1,19 @@
+.react-calendar .active {
+  background-color: #0869f0;
+  color: #fff;
+}
+.week-picker {
+  position: relative;
+}
+
+.week-picker .calendar-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 0;
+  display: block;
+  z-index: 1;
+}
