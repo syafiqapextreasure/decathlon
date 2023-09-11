@@ -79,7 +79,10 @@ button{
 }
 
 .border-top-none{
-    border-top: none;
+    border-top: none!important;
+}
+.border-bottom-none{
+    border-bottom: none!important;
 }
 
 .w-50{

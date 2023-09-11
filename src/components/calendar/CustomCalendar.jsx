@@ -62,7 +62,7 @@ const CustomCalendar = () => {
       onSelectEvent={handleSelectEvent}
       dayPropGetter={calendarStyle}
       formats={formats}
-      style={{ height: 500 }} />
+      style={{ height: 700 }} />
   );
 }
 

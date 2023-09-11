@@ -47,6 +47,13 @@
         border-collapse: collapse;
         // width: 100%;
     }
+
+    .border-top-none{
+        border-top: none!important;
+    }
+    .border-bottom-none{
+        border-bottom: none!important;
+    }
     
     th, td {
         border: 1px solid black!important;
@@ -55,6 +62,9 @@
         font-weight: 700;
         line-height: 1.5rem;
         text-align: center;
+    }
+    .start{
+        white-space: nowrap;
     }
 }
 

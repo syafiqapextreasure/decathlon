@@ -1,7 +1,7 @@
 
 .headings, .headings-data{
     display: flex;
-    gap: 20px;
+    gap: 0.7rem;
 }
 
 .headings-data{
@@ -16,8 +16,8 @@
     }
     th, td {
         border: 1px solid black!important;
-        padding: 0.5rem;
-        font-size: 1rem;
+        padding: 0.5rem 0.25rem;
+        font-size: 0.9rem;
         font-weight: 700;
         line-height: 1.5rem;
         text-align: center;

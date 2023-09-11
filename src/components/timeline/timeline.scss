@@ -92,3 +92,15 @@ p{
     background-color: rgba(10, 177, 48, 0.04);
     padding: 6px;
 }
+
+@media screen and  (min-width: 768px) {
+    .schedule-button-area{
+        display: flex;
+    }
+}
+
+@media screen and  (max-width: 768px) {
+    .schedule-button-area{
+        display: block;
+    }
+}

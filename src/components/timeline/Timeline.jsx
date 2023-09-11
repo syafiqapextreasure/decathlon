@@ -12,8 +12,7 @@ const Timeline = () => {
   
   return (
     <div>
-        <Row>
-          <Col sm={12} md={12} lg={5} className="d-flex">
+        <div className="schedule-button-area">
             <div className="button-flex floor" onClick={() => {
               setData({...data, currentPaint: {name: "Floor", color: "blue"}})
             }}>
@@ -30,8 +29,6 @@ const Timeline = () => {
             }}>
               <p className="color-white">AL / RPH</p>
             </div>
-          </Col>
-          <Col sm={12} md={12} lg={4} className="d-flex">
             <div className="button-flex duty" onClick={() => {
               setData({...data, currentPaint: {name: "DUTY", color: "#65b045"}})
             }}>
@@ -52,24 +49,61 @@ const Timeline = () => {
             }}>
               <p className="color-white">CASHIER</p>
             </div>
-          </Col>
-        </Row>
-      
-
+        </div>
       <Row>
-        <Col sm={12} md={8} lg={9}>
+        <Col sm={12} md={8} lg={10}>
           <ResourceTimeline day_index={0} />
         </Col>
-        <Col sm={12} md={4} lg={3}>
+        <Col sm={12} md={4} lg={2}>
           <HoursData day_index={0} />
         </Col>
       </Row>
       <Row>
-        <Col sm={12} md={8} lg={9}>
+        <Col sm={12} md={8} lg={10}>
           <ResourceTimeline day_index={1}/>
         </Col>
-        <Col sm={12} md={4} lg={3}>
+        <Col sm={12} md={4} lg={2}>
           <HoursData day_index={1}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12} md={8} lg={10}>
+          <ResourceTimeline day_index={2}/>
+        </Col>
+        <Col sm={12} md={4} lg={2}>
+          <HoursData day_index={2}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12} md={8} lg={10}>
+          <ResourceTimeline day_index={3}/>
+        </Col>
+        <Col sm={12} md={4} lg={2}>
+          <HoursData day_index={3}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12} md={8} lg={10}>
+          <ResourceTimeline day_index={4}/>
+        </Col>
+        <Col sm={12} md={4} lg={2}>
+          <HoursData day_index={4}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12} md={8} lg={10}>
+          <ResourceTimeline day_index={5}/>
+        </Col>
+        <Col sm={12} md={4} lg={2}>
+          <HoursData day_index={5}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12} md={8} lg={10}>
+          <ResourceTimeline day_index={6}/>
+        </Col>
+        <Col sm={12} md={4} lg={2}>
+          <HoursData day_index={6}/>
         </Col>
       </Row>
     </div>

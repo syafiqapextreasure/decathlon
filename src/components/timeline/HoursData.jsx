@@ -37,7 +37,7 @@ const HoursData = (props) => {
     Object.keys(total).map((key) => {
       total[key] = Math.round(total[key] / 2);
     });
-      console.log(total);
+      // console.log(total);
     return total;
   }
 

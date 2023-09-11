@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   return (
     <div className='sidebar'>
-      <div className='logo'><img src={companyLogo} alt=""/></div>
+      <div className='logo'><img style={{width:'90%', height:'85%'}} src={companyLogo} alt=""/></div>
       <div className='items'>
         <List component="ul">
           <Link to='/' style={{ textDecoration: 'none' }}>

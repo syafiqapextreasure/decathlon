@@ -6,6 +6,8 @@
 .bg-green{
     background-color: #0ab130;
     color: #fff;
+    text-align: left!important;
+    display: table-cell;
 }
 
 .bg-black{
@@ -26,7 +28,7 @@
     padding: 0;
     text-align: center;
     color: white;
-    padding: 2px;
+    padding: 0px!important;
    
 }
 
@@ -38,17 +40,18 @@
     border-radius: 3px;
     overflow: hidden;
     height: 1.5rem;
+    font-size: 0.8rem;
 }
 
 .timeline-table  {
     table-layout: fixed;
     border-collapse: collapse;
     margin-bottom: 0.5rem;
-
+    width: 100%;
     th, td {
         border: 1px solid black!important;
-        padding: 0.5rem;
-        font-size: 1rem;
+        padding: 0.5rem 0.35rem;
+        font-size: 0.9rem;
         font-weight: 700;
         line-height: 1.5rem;
         text-align: center;

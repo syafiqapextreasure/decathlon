@@ -46,7 +46,8 @@ const ResourceTimeline = (props) => {
         return;
       }
       if ( currentEmployee >= 0 && currentPos >= 0 && currentTimeline >=0 && e.pageX > currentPos ) {
-          newTimeline[currentTimeline] = {name: data.currentPaint.name, color: data.currentPaint.color, length: Math.round((e.pageX-currentPos)/tdwidth) + 1, "status": "new"}
+          if (currentTimeline + Math.floor((e.pageX-currentPos)/tdwidth) + 1 > 48) return;
+          newTimeline[currentTimeline] = {name: data.currentPaint.name, color: data.currentPaint.color, length: Math.floor((e.pageX-currentPos)/tdwidth) + 1, "status": "new"}
           setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: newTimeline}})
           setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}})
       }
@@ -61,13 +62,13 @@ const ResourceTimeline = (props) => {
       if ( currentEmployee >= 0 && currentPos >= 0 && currentTimeline >=0 && resizeType !== '' ) {
         if (resizeType === 'left'){
           if (e.pageX < currentPos){
-            if (currentTimeline - Math.round((currentPos - e.pageX)/tdwidth) >= 0){
-              delete selected_time_line[currentTimeline - Math.round((currentPos - e.pageX)/tdwidth)];
-              selected_time_line[currentTimeline - Math.round((currentPos - e.pageX)/tdwidth)] = {name: edit_name, color: edit_color, length: edit_length + Math.round((currentPos - e.pageX)/tdwidth), "status": "new"}
-              setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: selected_time_line}})
-              setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}})
-              if (Math.round((currentPos - e.pageX)/tdwidth) > 0){
-                setCurrentTimeline(currentTimeline - Math.round((currentPos - e.pageX)/tdwidth));
+            if (currentTimeline - Math.floor((currentPos - e.pageX)/tdwidth) >= 0){
+              if (Math.floor((currentPos - e.pageX)/tdwidth) > 0){
+                delete selected_time_line[currentTimeline - Math.floor((currentPos - e.pageX)/tdwidth)];
+                selected_time_line[currentTimeline - Math.floor((currentPos - e.pageX)/tdwidth)] = {name: edit_name, color: edit_color, length: edit_length + Math.floor((currentPos - e.pageX)/tdwidth), "status": "new"}
+                setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: selected_time_line}})
+                setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}})
+                setCurrentTimeline(currentTimeline - Math.floor((currentPos - e.pageX)/tdwidth));
                 setCurrentPos(e.pageX);
                 setTimeout(() => {
                   delete selected_time_line[currentTimeline + 1];
@@ -76,13 +77,14 @@ const ResourceTimeline = (props) => {
             }
           }
           if (e.pageX > currentPos){
-            if (edit_length - Math.round((e.pageX - currentPos)/tdwidth) >=1){
-              delete selected_time_line[currentTimeline + Math.round((e.pageX - currentPos)/tdwidth)];
-              selected_time_line[currentTimeline + Math.round((e.pageX - currentPos)/tdwidth)] = {name: edit_name, color: edit_color, length: edit_length - Math.round((e.pageX - currentPos)/tdwidth), "status": "new"}
-              setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: selected_time_line}})
-              setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}});
-              if (Math.round((e.pageX - currentPos)/tdwidth) > 0){
-                setCurrentTimeline(currentTimeline + Math.round((e.pageX - currentPos)/tdwidth));
+            if (edit_length - Math.floor((e.pageX - currentPos)/tdwidth) >=1){
+              if (Math.floor((e.pageX - currentPos)/tdwidth) > 0){
+                delete selected_time_line[currentTimeline + Math.floor((e.pageX - currentPos)/tdwidth)];
+                selected_time_line[currentTimeline + Math.floor((e.pageX - currentPos)/tdwidth)] = {name: edit_name, color: edit_color, length: edit_length - Math.floor((e.pageX - currentPos)/tdwidth), "status": "new"}
+                setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: selected_time_line}})
+                setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}});
+              
+                setCurrentTimeline(currentTimeline + Math.floor((e.pageX - currentPos)/tdwidth));
                 setCurrentPos(e.pageX);
                 setTimeout(() => {
                   delete selected_time_line[currentTimeline - 1];
@@ -92,8 +94,8 @@ const ResourceTimeline = (props) => {
           }
         } else {
           if (e.pageX < currentPos){
-            if (edit_length - Math.round((currentPos - e.pageX)/tdwidth) >=1){
-              if (Math.round((currentPos - e.pageX)/tdwidth) > 0){
+            if (edit_length - Math.floor((currentPos - e.pageX)/tdwidth) >=1){
+              if (Math.floor((currentPos - e.pageX)/tdwidth) > 0){
                 selected_time_line[currentTimeline] = {name: edit_name, color: edit_color, length: edit_length - 1, "status": "new"}
                 setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: selected_time_line}})
                 setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}});
@@ -102,7 +104,8 @@ const ResourceTimeline = (props) => {
             }
           }
           if (e.pageX > currentPos){
-            if (Math.round((e.pageX - currentPos)/tdwidth) > 0){
+            if (Math.floor((e.pageX - currentPos)/tdwidth) > 0){
+              if (currentTimeline + edit_length + 1 > 48) return;
               selected_time_line[currentTimeline] = {name: edit_name, color: edit_color, length: edit_length + 1, "status": "new"}
               setListEmployee({...listEmployee, [currentEmployee]: {...listEmployee[currentEmployee], timeline: selected_time_line}})
               setData({...data, employee: {...data.employee, [props.day_index]: listEmployee}});
@@ -145,9 +148,9 @@ const ResourceTimeline = (props) => {
         timelineArray.push(
         <td onMouseMove={onMouseMove.bind(this, i)} onContextMenu={handleContextMenu.bind(this, employeeId, i)} className="timeline-cell"  colSpan={timeline[i].length}>
           <div className='d-flex'>
-            <div onMouseDown={clickforEdit.bind(this, 'left', timeline, i, employeeId)} style={{cursor:'col-resize', width:'3px', height:'1.5rem'}}></div>
+            <div onMouseDown={clickforEdit.bind(this, 'left', timeline, i, employeeId)} style={{cursor:'col-resize', width:'2px', height:'1.5rem'}}></div>
             <div className="timeline-cell-inner"  style={{backgroundColor: timeline[i].color }}>{timeline[i].name}</div>
-            <div onMouseDown={clickforEdit.bind(this, 'right', timeline, i, employeeId)} style={{cursor:'col-resize', width:'3px', height:'1.5rem'}}></div>
+            <div onMouseDown={clickforEdit.bind(this, 'right', timeline, i, employeeId)} style={{cursor:'col-resize', width:'2px', height:'1.5rem'}}></div>
           </div>
         </td>)
         i += timeline[i].length - 1
@@ -159,13 +162,13 @@ const ResourceTimeline = (props) => {
   }
 
   const formatSelectedWeek = () => {
-    const startDate = moment().isoWeek(data.currentWeek).startOf('isoWeek').format('MMM DD YYYY');
-    const endDate = moment().isoWeek(data.currentWeek).endOf('isoWeek').format('MMM DD YYYY');
+    const startDate = moment().isoWeek(data.currentWeek).startOf('isoWeek').format('DD/MM/YYYY');
+    const endDate = moment().isoWeek(data.currentWeek).endOf('isoWeek').format('DD/MM/YYYY');
     return `W${data.currentWeek} | ${startDate} - ${endDate}`;
   };
 
   const formatDay = () => {
-    return moment(data.currentDay).add(props.day_index, 'd').format('MM/DD/YYYY');
+    return moment(data.currentDay).add(props.day_index, 'd').format('DD/MM/YYYY');
   };
 
   const formatThu = () => {
@@ -177,14 +180,14 @@ const ResourceTimeline = (props) => {
       <table className='timeline-table'>
         <thead>
             <tr className='bg-blue'>
-                <th colSpan="49" className='start'>{formatSelectedWeek()}</th>
+                <th colSpan="57" className='start'>{formatSelectedWeek()}</th>
             </tr>
             <tr>
-                <th className='bg-green'>{formatThu()}&nbsp;&nbsp;{formatDay()}</th>
+                <th className='bg-green' colSpan={9}>{formatThu()} {formatDay()}</th>
                 <th colSpan="48" className='bg-black'>0.00 AM | 0H-24H | 12.00 PM</th>
             </tr>
             <tr className='bg-gray'>
-                <td style={{textAlign:'left'}}>Clock 24 Hours</td>
+                <td colSpan={9} style={{textAlign:'left'}}>Clock 24 Hours</td>
                 {Array.from(Array(24)).map((item, index) => (
                   <td colSpan={2} key={index}>{index}</td>
                 ))}
@@ -192,14 +195,14 @@ const ResourceTimeline = (props) => {
         </thead>
         <tbody>
             <tr>
-                <td className='bg-black' style={{textAlign:'left'}}>{'Activities'}</td>
+                <td colSpan={9} className='bg-black' style={{textAlign:'left'}}>{'Activities'}</td>
                 {Array.from(Array(48)).map((item, index) => (
                   <td style={{background:'#DDDFE1'}} key={index}>{index%2 + 1}</td>
                 ))}
             </tr>
           { Object.keys(listEmployee).map((key) => (
             <tr key={'em-' + listEmployee[key].id}>
-              <td style={{textAlign:'left'}}>{listEmployee[key].name}</td>
+              <td colSpan={9} style={{textAlign:'left'}}>{listEmployee[key].name}</td>
               {renderTimeline(key, listEmployee[key].timeline)}
             </tr>
           ))}

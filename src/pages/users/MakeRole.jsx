@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Row, Col, Button, FormCheck} from 'react-bootstrap';
+import Select from '../../components/select/Select'
 
 const MakeRole = () => {
     const location = useLocation();
@@ -92,12 +93,28 @@ const MakeRole = () => {
             update:1,
         },
     ];
+
+    const role_items = [
+        {title: 'Super Admin', value: 'Super Admin'},
+        {title: 'Admin', value: 'Admin'},
+        {title: 'Team Leader', value: 'Team Leader'},
+        {title: 'Department Manager', value: 'Department Manager'},
+        {title: 'Operation Leader', value: 'Operation Leader'},
+    ];
     return (
         <div className='content-body'>
             <Row>
                 <Col sm={12} md={6} lg={4}>
-                    <div style={{fontSize:'1.2rem', fontWeight:'500'}}>Role Name</div>
-                    <input style={{minWidth:'20rem'}} type="text" value={name} placeholder="Head of Operation.."/>
+                    {location.pathname === '/User/Role/Edit-Role' ? (
+                        <div className='spec-role-drop'>
+                            <Select label={'Role Name'} items={role_items} value={name} />
+                        </div>
+                    ) : (
+                        <>
+                        <div style={{fontSize:'1.2rem', fontWeight:'500'}}>Role Name</div>
+                        <input style={{minWidth:'20rem'}} type="text" value={name} placeholder="Head of Operation.."/>
+                        </>
+                    )}
                 </Col>
             </Row>
             <div style={{fontWeight:'bold', marginTop:'1rem', fontSize:'1.4rem'}}>Permission</div>
