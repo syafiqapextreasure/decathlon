@@ -51,7 +51,7 @@ function App() {
         {isLoggedIn && (
           <Sidebar />
         )}
-        <div className="main-body">
+        <div className={isLoggedIn ? "main-body" :'login-container'}>
         {isLoggedIn && (
           <Navbar onLogout={handleLogout}/>
         )}
