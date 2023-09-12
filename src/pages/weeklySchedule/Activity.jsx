@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import { Row, Col, Button} from 'react-bootstrap';
 import AddIcon from "@mui/icons-material/Add";
 import { ArrowDropDownOutlined, ArrowDropUpOutlined} from '@mui/icons-material';
+import ConfirmModal from '../../components/modal/ConfirmModal';
 
 const Activity = () => {
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const activity_data = [
         {
             no:1,
@@ -102,7 +104,11 @@ const Activity = () => {
                                         {item.order === 1 && (<ArrowDropUpOutlined/>)}
                                     </td>
                                     <td>{'Note'}</td>
-                                    <td className='text-center' style={{color:'#FF8500'}}>Edit</td>
+                                    <td className='text-center'>
+                                        <span className='td-action-btn' style={{color:'#1482C2'}}>View</span>
+                                        <span className='td-action-btn' style={{color:'#FF8500'}}>Edit</span>
+                                        <span onClick={() => setIsDeleteModal(true)} className='td-action-btn' style={{color:'#FC5855'}}>Delete</span>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -110,6 +116,12 @@ const Activity = () => {
                 </table>
                 </Col>
             </Row>
+            {isDeleteModal && (
+                <ConfirmModal
+                    closeModal = {() => setIsDeleteModal(false)}
+                    description = {'Are you sure you want to delete?<br/>This process cannot be undone'}
+                />
+            )}
         </div>
     )
 }

@@ -4,8 +4,12 @@ import AddIcon from "@mui/icons-material/Add";
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import SelectBox from '../../components/selectBox/SelectBox';
 import { Link } from 'react-router-dom';
+import ConfirmModal from "../../components/modal/ConfirmModal";
+
 const PublicHolidays = () => {
     const [selectedOption, setSelectedOption] = useState('Country');
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
+
     const handleOptionChange = (event, option) => {
         setSelectedOption(event.target.value);
     };
@@ -96,7 +100,11 @@ const PublicHolidays = () => {
                                     <td>{item.name}</td>
                                     <td>{item.date}</td>
                                     <td><div style={{height:'1.3rem', background:item.color}}></div></td>
-                                    <td className='text-center' style={{color:'#FF8500'}}>Edit</td>
+                                    <td className='text-center'>
+                                        <span className='td-action-btn' style={{color:'#1482C2'}}>View</span>
+                                        <span className='td-action-btn' style={{color:'#FF8500'}}>Edit</span>
+                                        <span onClick={() => setIsDeleteModal(true)} className='td-action-btn' style={{color:'#FC5855'}}>Delete</span>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -104,6 +112,12 @@ const PublicHolidays = () => {
                 </table>
                 </Col>
             </Row>
+            {isDeleteModal && (
+                <ConfirmModal
+                    closeModal = {() => setIsDeleteModal(false)}
+                    description = {'Are you sure you want to delete?<br/>This process cannot be undone'}
+                />
+            )}
         </div>
     )
 }

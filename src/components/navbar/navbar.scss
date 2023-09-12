@@ -38,4 +38,30 @@
 .role{
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+.nav-drop-down-menu{
+    position: absolute;
+    text-align: left;
+    border: 1px solid #C4C4C4;
+    padding-left:0rem;
+    padding-right:0rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    font-weight: 400;
+    background-color: white;
+    width: 120%;
+    top:2rem;
+    left:-2rem;
+    z-index: 100;
+    div{
+        cursor: pointer;
+        padding-left:1rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    div:hover{
+        background: rgba(20, 130, 194, 0.07);
+    }
 }

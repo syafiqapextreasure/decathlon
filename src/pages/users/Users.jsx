@@ -8,8 +8,10 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import {ArrowUpward, ExpandMore} from '@mui/icons-material';
 import SortIcon from '@mui/icons-material/Sort';
 import AddIcon from "@mui/icons-material/Add";
+import ConfirmModal from '../../components/modal/ConfirmModal';
 
 const Users = () => {
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const user_data = [
         {
             no:1,
@@ -130,7 +132,9 @@ const Users = () => {
                                     <td>{item.role}</td>
                                     <td>{item.status === 1 ?  (<div className='on-off-div on-div'>Active</div> ) : (<div className='on-off-div off-div'>Inactive</div>)}</td>
                                     <td className='text-center'>
-                                        <Link to='/User/User-Profile' state={item} style={{color:'#FF8500', textDecoration:'none'}}>Edit</Link>
+                                        <span className='td-action-btn' style={{color:'#1482C2'}}>View</span>
+                                        <span className='td-action-btn'><Link to='/User/User-Profile' state={item} style={{color:'#FF8500', textDecoration:'none'}}>Edit</Link></span>
+                                        <span onClick={() => setIsDeleteModal(true)} className='td-action-btn' style={{color:'#FC5855'}}>Delete</span>
                                     </td>
                                 </tr>
                             )
@@ -151,6 +155,12 @@ const Users = () => {
                 </Row>
                 </Col>
             </Row>
+            {isDeleteModal && (
+                <ConfirmModal
+                    closeModal = {() => setIsDeleteModal(false)}
+                    description = {'Are you sure you want to delete?<br/>This process cannot be undone'}
+                />
+            )}
         </div>
     )
 }

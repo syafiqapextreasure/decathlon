@@ -161,3 +161,29 @@ input{
 .color-td{
     width:6rem;
 }
+.td-action-btn{
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.login-body{
+    padding-top: 8%;
+    text-align: center;
+    .login-title{
+        font-weight: 500;
+        font-size: 2rem;
+        margin-top: 1.5rem;
+    }
+    .input-field{
+        width:100%!important;
+    }
+    .form-input{
+        padding-left:10%;
+        padding-right: 10%;
+    }
+    .password-vis-icon{
+        position: absolute;
+        bottom: 0.4rem;
+        right: 12%;
+        cursor: pointer;
+    }
+}

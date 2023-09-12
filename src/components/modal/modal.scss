@@ -1,0 +1,17 @@
+.change-password-modal{
+    .input-field{
+        width: 100%;
+    }
+    .password-vis-icon{
+        position: absolute;
+        bottom: 0.4rem;
+        right: 3%;
+        cursor: pointer;
+    }
+    .match-pass{
+        border-color: #0AB130!important;
+    }
+    .unmatch-pass{
+        border-color: red!important;
+    }
+}

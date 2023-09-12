@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button} from 'react-bootstrap';
 import AddIcon from "@mui/icons-material/Add";
+import ConfirmModal from '../../components/modal/ConfirmModal';
+
 const Role = () => {
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const store_data = [
         {
             no:1,
@@ -56,7 +59,9 @@ const Role = () => {
                                     <td className='col-no-td'>{item.no}</td>
                                     <td>{item.name}</td>
                                     <td className='text-center'>
-                                        <Link to={'/User/Role/Edit-Role?name=' + item.name}  style={{color:'#FF8500', textDecoration:'none'}}>Edit</Link>
+                                        <span className='td-action-btn' style={{color:'#1482C2'}}>View</span>
+                                        <span className='td-action-btn'><Link to={'/User/Role/Edit-Role?name=' + item.name}  style={{color:'#FF8500', textDecoration:'none'}}>Edit</Link></span>
+                                        <span onClick={() => setIsDeleteModal(true)} className='td-action-btn' style={{color:'#FC5855'}}>Delete</span>
                                     </td>
                                 </tr>
                             )
@@ -65,6 +70,12 @@ const Role = () => {
                 </table>
                 </Col>
             </Row>
+            {isDeleteModal && (
+                <ConfirmModal
+                    closeModal = {() => setIsDeleteModal(false)}
+                    description = {'Are you sure you want to delete?<br/>This process cannot be undone'}
+                />
+            )}
         </div>
     )
 }

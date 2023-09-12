@@ -47,6 +47,7 @@ const AddPublicHoliday = () => {
                 </Col>
             </Row>
             </Row>
+            <Link to="/Annual-Schedule/Public-Holidays"><Button variant="" style={{border:'1px solid #C4C4C4'}}>CANCEL</Button></Link>
             <Button className='button' variant="primary" onClick={() => navigate('/Annual-Schedule/Public-Holidays')}>SAVE</Button>
         </div>
     )

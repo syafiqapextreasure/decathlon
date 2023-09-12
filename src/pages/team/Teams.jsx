@@ -8,8 +8,10 @@ import CachedIcon from "@mui/icons-material/Cached";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import {ArrowUpward, ExpandMore} from '@mui/icons-material';
 import SortIcon from '@mui/icons-material/Sort';
+import ConfirmModal from '../../components/modal/ConfirmModal';
 
 const Teams = () => {
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const team_data = [
         {
             no:1,
@@ -266,7 +268,11 @@ const Teams = () => {
                                     <td>{item.designation}</td>
                                     <td>{item.blacklist === 1 ? (<div className='on-off-div off-div'>Yes</div> ) : (<div className='on-off-div on-div'>No</div>)}</td>
                                     <td>{item.status === 1 ?  (<div className='on-off-div on-div'>Active</div> ) : (<div className='on-off-div off-div'>Inactive</div>)}</td>
-                                    <td className='text-center' style={{color:'#1482C2'}}><Link to='/Team/Team-Profile' state={ item }> View </Link></td>
+                                    <td className='text-center'>
+                                        <span className='td-action-btn' style={{color:'#1482C2'}}><Link to='/Team/Team-Profile' style={{textDecoration:'none'}} state={ item }> View </Link></span>
+                                        <span className='td-action-btn' style={{color:'#FF8500'}}>Edit</span>
+                                        <span onClick={() => setIsDeleteModal(true)} className='td-action-btn' style={{color:'#FC5855'}}>Delete</span>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -286,6 +292,12 @@ const Teams = () => {
                 </Row>
                 </Col>
             </Row>
+            {isDeleteModal && (
+                <ConfirmModal
+                    closeModal = {() => setIsDeleteModal(false)}
+                    description = {'Are you sure you want to delete?<br/>This process cannot be undone'}
+                />
+            )}
         </div>
     )
 }

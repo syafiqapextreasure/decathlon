@@ -134,12 +134,6 @@ const Sidebar = () => {
               <span>Settings</span>
             </li>
           </Link>
-          <Link to='/Sign-Out' style={{ textDecoration: 'none' }}>
-            <li className={isActive('/Sign-Out') ? 'active' : ''}>
-              <LogoutOutlined className='logout' />
-              <span className='logout'>Sign out</span>
-            </li>
-          </Link>
         </List>
       </div>
     </div>

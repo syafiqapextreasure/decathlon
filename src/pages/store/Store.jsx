@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Store.scss";
 import SelectBox from '../../components/selectBox/SelectBox';
 import { Row, Col, Button} from 'react-bootstrap';
 import AddIcon from "@mui/icons-material/Add";
+import { Link } from 'react-router-dom';
+import ConfirmModal from '../../components/modal/ConfirmModal';
+
 const Store = () => {
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const store_data = [
         {
             no:1,
@@ -36,8 +40,9 @@ const Store = () => {
             <Row>
                 <Col sm={12} md={6} lg={4}>
                     <div className='d-flex'>
-                        <Button variant="primary"><AddIcon />&nbsp;&nbsp;Add a New Store</Button>
-                    
+                        <Link to='/Store/Add-a-New-Store'>
+                            <Button variant="primary"><AddIcon />&nbsp;&nbsp;Add a New Store</Button>
+                        </Link>
                     </div>
                 </Col>
                 <Col sm={0} md={0} lg={5}></Col>
@@ -63,7 +68,11 @@ const Store = () => {
                                 <tr>
                                     <td className='col-no-td'>{item.no}</td>
                                     <td>{item.name}</td>
-                                    <td className='text-center' style={{color:'#FF8500'}}>Edit</td>
+                                    <td className='text-center'>
+                                        <span className='td-action-btn' style={{color:'#1482C2'}}>View</span>
+                                        <span className='td-action-btn' style={{color:'#FF8500'}}>Edit</span>
+                                        <span onClick={() => setIsDeleteModal(true)} className='td-action-btn' style={{color:'#FC5855'}}>Delete</span>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -71,6 +80,12 @@ const Store = () => {
                 </table>
                 </Col>
             </Row>
+            {isDeleteModal && (
+                <ConfirmModal
+                    closeModal = {() => setIsDeleteModal(false)}
+                    description = {'Are you sure you want to delete?<br/>This process cannot be undone'}
+                />
+            )}
         </div>
     )
 }

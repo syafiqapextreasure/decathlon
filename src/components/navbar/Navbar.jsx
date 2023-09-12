@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { NotificationsNoneOutlined, KeyboardArrowDownOutlined } from '@mui/icons-material';
+import { NotificationsNoneOutlined, KeyboardArrowDownOutlined, LogoutOutlined} from '@mui/icons-material';
 import Mobilemenu from "./Mobilemenu";
 import "./navbar.scss";
-import avatar_img from "../../asset/replace_img.png";
+import ChangePasswordModal from "../modal/ChangePasswordModal";
 
-const Navbar = () => {
+// import avatar_img from "../../asset/replace_img.png";
+
+const Navbar = (props) => {
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
+  const [isPasswordModal, setIsPasswordModal] = useState(false);
   const [currentPage, setCurrentPage] = useState('General');
   const [brumb, setBrumb] = useState('');
   const location = useLocation();
@@ -31,7 +35,9 @@ const Navbar = () => {
     setCurrentPage(main_page || 'General');
     setBrumb(brumb);
   }, [location]);
+
   return (
+    <>
     <div className='top-navbar'>
         <div className="wrapper">
           <div className='d-flex'>
@@ -47,17 +53,29 @@ const Navbar = () => {
             
           </div>
           <div className="userInfo">
-              <NotificationsNoneOutlined />
-              <div className="image">
+              <NotificationsNoneOutlined/>
+              {/* <div className="image">
               <img src={avatar_img} alt="" className='image' />
+              </div> */}
+              <div className="role" style={{position:'relative'}} onClick={() => {setIsOpenPopup(!isOpenPopup)}}>Admin | Maryam
+                <KeyboardArrowDownOutlined />
+                {isOpenPopup && (
+                  <div className='nav-drop-down-menu'>
+                    <div onClick={() => setIsPasswordModal(true)}>Change Password</div>
+                    <div onClick={() => props.onLogout()}>
+                        {/* <LogoutOutlined className='' /> */}
+                        <span className=''>Sign out</span>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="role">Admin | Maryam
-              <KeyboardArrowDownOutlined />
-              </div>
-              
           </div>
         </div>
     </div>
+    {isPasswordModal && (
+      <ChangePasswordModal closeModal={() => {setIsPasswordModal(false)}}/>
+    )}
+    </>
   )
 }
 
