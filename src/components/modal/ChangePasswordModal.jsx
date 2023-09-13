@@ -45,14 +45,12 @@ const ChangePasswordModal = (props) => {
     
     return(
         <Modal show={true} onHide={() => props.closeModal()} className='change-password-modal'>
-            <Modal.Header>
-                <Modal.Title>CHANGE PASSWORD</Modal.Title>
-            </Modal.Header>
             <Modal.Body>
-                <div style={{position:'relative'}}>
+                <h2>CHANGE PASSWORD</h2>
+                <div style={{position:'relative', paddingBottom:'0.7rem', borderBottom:'1px solid #A8AEB5'}}>
                     <Input label={'Current Password'} value={currentPassword} onChange={(e) => changePassword(e, 'current')}
                         type={visibleCurrentPassword ? 'text' : 'password'} />
-                    <VisibilityOffIcon onClick={() => setVisibleCurrentPassword(!visibleCurrentPassword)} className='password-vis-icon'/>
+                    <VisibilityOffIcon style={{bottom:'1rem'}} onClick={() => setVisibleCurrentPassword(!visibleCurrentPassword)} className='password-vis-icon'/>
                 </div>
                 <div style={{position:'relative'}}>
                     <Input label={'New Password'} value={newPassword} onChange={(e) => changePassword(e, 'new')}
@@ -67,19 +65,19 @@ const ChangePasswordModal = (props) => {
                 {match_flag !== 2 && (
                     <>
                     {match_flag === 1 && (
-                        <div style={{color:'#0AB130'}} className='warning-div'>The password you entered match</div>
+                        <div style={{color:'#0AB130', paddingLeft:'5px'}} className='warning-div'>The password you entered match</div>
                     )}
                     {match_flag === 0 && (
-                        <div style={{color:'#FF0000'}} className='warning-div'>The password you entered match</div>
+                        <div style={{color:'#FF0000', paddingLeft:'5px'}} className='warning-div'>The password you entered do not match</div>
                     )}
                     </>
                 )}
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={() => savePassword()} className='button' variant="primary">SAVE</Button>
-                <Button onClick={() => props.closeModal()} variant="dark" style={{background:'#92929D', borderColor:'#92929D'}}>CANCEL</Button>
+                <div style={{marginTop:'2rem', marginBottom:'1.5rem', paddingLeft:'5px'}}>
+                    <Button onClick={() => savePassword()} className='button' variant="primary">SAVE</Button>
+                    <Button onClick={() => props.closeModal()} variant="dark" style={{background:'#92929D', borderColor:'#92929D'}}>CANCEL</Button>
+                </div>
                 
-            </Modal.Footer>
+            </Modal.Body>
         </Modal>
     )
 }
