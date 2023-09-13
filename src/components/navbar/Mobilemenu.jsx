@@ -5,6 +5,7 @@ import {ExpandLess, ExpandMore, AssignmentOutlined, CalendarMonthOutlined, Descr
 import {List, Collapse, ListItemText} from "@mui/material";
 
 const Mobilemenu = () => {
+    const [openTeamSub, setOpenTeamSub] = useState(false);
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [openStoreSub, setOpenStoreSub] = useState(false);
@@ -108,12 +109,25 @@ const Mobilemenu = () => {
                 </Link>
                 </List>
             </Collapse>
-            <Link to='/Team' style={{ textDecoration: 'none' }}>
-                <li className={isActive('/Team') ? 'active' : ''}>
+            <li onClick={() => setOpenTeamSub(!openTeamSub)}>
                 <PeopleAltOutlined className='icon' />
                 <span>Team</span>
-                </li>
-            </Link>
+                {openTeamSub ? <ExpandLess /> : <ExpandMore />}
+            </li>
+            <Collapse in={openTeamSub} timeout="auto" unmountOnExit className='collapse-menu'>
+                <List component="ul">
+                <Link to='/Team' style={{ textDecoration: 'none' }}>
+                    <li className={isActive('/Team') ? 'active' : ''}>
+                    <span>Team</span>
+                    </li>
+                </Link>
+                <Link to='/Team/Schedule' style={{ textDecoration: 'none' }}>
+                    <li className={isActive('/Team/Schedule') ? 'active' : ''}>
+                    <span>Schedule</span>
+                    </li>
+                </Link>
+                </List>
+            </Collapse>
             <li onClick={ () => {setOpenUserSub(!openUserSub)}}>
                 <PersonOutlined className='icon' />
                 <span>User</span>

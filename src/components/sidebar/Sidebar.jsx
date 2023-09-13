@@ -6,6 +6,7 @@ import {List, Collapse, ListItemText} from "@mui/material";
 import companyLogo from '../../asset/logo.png';
 
 const Sidebar = () => {
+  const [openTeamSub, setOpenTeamSub] = useState(false);
   const [openStoreSub, setOpenStoreSub] = useState(false);
   const [openUserSub, setOpenUserSub] = useState(false);
   const [openWeekSub, setOpenWeekSub] = useState(false);
@@ -97,12 +98,25 @@ const Sidebar = () => {
               </Link>
             </List>
           </Collapse>
-          <Link to='/Team' style={{ textDecoration: 'none' }}>
-            <li className={isActive('/Team') ? 'active' : ''}>
-              <PeopleAltOutlined className='icon' />
-              <span>Team</span>
-            </li>
-          </Link>
+          <li onClick={() => setOpenTeamSub(!openTeamSub)}>
+            <PeopleAltOutlined className='icon' />
+            <span>Team</span>
+            {openTeamSub ? <ExpandLess /> : <ExpandMore />}
+          </li>
+          <Collapse in={openTeamSub} timeout="auto" unmountOnExit className='collapse-menu'>
+            <List component="ul">
+              <Link to='/Team' style={{ textDecoration: 'none' }}>
+                <li className={isActive('/Team') ? 'active' : ''}>
+                  <span>Team</span>
+                </li>
+              </Link>
+              <Link to='/Team/Schedule' style={{ textDecoration: 'none' }}>
+                <li className={isActive('/Team/Schedule') ? 'active' : ''}>
+                  <span>Schedule</span>
+                </li>
+              </Link>
+            </List>
+          </Collapse>
           <li onClick={ () => {setOpenUserSub(!openUserSub)}}>
             <PersonOutlined className='icon' />
             <span>User</span>

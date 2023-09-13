@@ -29,7 +29,7 @@ const DepartmentAdd = () => {
             </Row>
             <Row>
                 <Col sm={12} md={10} lg={6}>
-                    <InputwithLabel label={'Department Name'} type="textarea"/>
+                    <InputwithLabel placeholder={'Please enter department name'} label={'Department Name'} type="textarea"/>
                 </Col>
             </Row>
             <Link to="/Store/Department"><Button variant="" style={{border:'1px solid #C4C4C4'}}>CANCEL</Button></Link>

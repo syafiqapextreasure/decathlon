@@ -25,6 +25,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from './components/sidebar/Sidebar';
 import Navbar from './components/navbar/Navbar';
 import Login from "./pages/Login";
+import TeamsSchedule from "./pages/team/TeamsSchedule";
 import './App.scss';
 import { useEffect, useState } from "react";
 
@@ -78,6 +79,7 @@ function App() {
               <Route path="Store/Add-a-New-Store" element={<StoreAdd />} />
               <Route path="Team" element={<Teams />} />
               <Route path="Team/Team-Profile" element={<TeamProfile />} />
+              <Route path="Team/Schedule" element={<TeamsSchedule />} />
               <Route path="User" element={<Users />} />
               <Route path="User/Role" element={<Role />} />
               <Route path="User/Role/New-Role" element={<MakeRole />} />

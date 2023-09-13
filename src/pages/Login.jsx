@@ -14,9 +14,9 @@ const Login = (props) => {
                 <Col sm={12} md={8} lg={4} style={{padding:'1rem'}}>
                     <div className=''><img style={{width:'80%', height:'5rem'}} src={companyLogo} alt=""/></div>
                     <div className='login-title'>User Login</div>
-                    <Input label={'E-MAIL'} type="email" />
+                    <Input placeholder={'Please enter your e-mail'} label={'E-MAIL'} type="email" />
                     <div style={{position:'relative'}}>
-                        <Input label={'PASSWORD'} type={visiblePassword ? 'text' : 'password'} />
+                        <Input placeholder={'Please enter your password'} label={'PASSWORD'} type={visiblePassword ? 'text' : 'password'} />
                         <VisibilityOffIcon onClick={() => setVisiblePassword(!visiblePassword)} className='password-vis-icon'/>
                     </div>
                     <div className='d-flex' style={{justifyContent:'space-around', marginTop:'1rem', marginBottom:'1rem'}}>

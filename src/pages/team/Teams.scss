@@ -43,3 +43,19 @@
     background-color: #FEE2E2;
     color:#991B1B;
 }
+.team-schedule{
+    text-align: center;
+    .team-title{
+        font-weight: 500;
+        font-size: 2rem;
+        margin-top: 1.5rem;
+    }
+    .input-field{
+        width:100%!important;
+        background: rgba(20, 130, 194, 0.1);
+    }
+    .form-input{
+        padding-left:10%;
+        padding-right: 10%;
+    }
+}

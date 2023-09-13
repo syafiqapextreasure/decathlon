@@ -20,7 +20,7 @@ const StoreAdd = () => {
             </Row>
             <Row>
                 <Col sm={12} md={10} lg={6}>
-                    <InputwithLabel label={'Store Name'} type="textarea"/>
+                    <InputwithLabel placeholder={'Please enter store name'} label={'Store Name'} type="textarea"/>
                 </Col>
             </Row>
             <Link to="/Store"><Button variant="" style={{border:'1px solid #C4C4C4'}}>CANCEL</Button></Link>
