@@ -72,7 +72,7 @@ const ChangePasswordModal = (props) => {
                     )}
                     </>
                 )}
-                <div style={{marginTop:'2rem', marginBottom:'1.5rem', paddingLeft:'5px'}}>
+                <div style={{marginTop:'2rem', marginBottom:'1rem', paddingLeft:'5px'}}>
                     <Button onClick={() => savePassword()} className='button' variant="primary">SAVE</Button>
                     <Button onClick={() => props.closeModal()} variant="dark" style={{background:'#92929D', borderColor:'#92929D'}}>CANCEL</Button>
                 </div>
