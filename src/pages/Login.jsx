@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Button} from 'react-bootstrap';
 import { Link} from 'react-router-dom';
 import Input from "../components/input/Input";
-import companyLogo from '../asset/logo.png';
+import companyLogo from '../asset/big-logo.png';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Login = (props) => {
