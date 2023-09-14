@@ -135,7 +135,7 @@ const Settings = () => {
                         <Pagination
                             items={user_data}
                             onChangePage={(items, obj_data) => {changePage(items, obj_data)}}
-                            pageSize = {5}
+                            pageSize = {6}
                         />
                     </Col>
                 </Row>

@@ -47,7 +47,7 @@ const Navbar = (props) => {
                 {currentPage}
               </div>
               {brumb !== '' && (
-                <div style={{color:'#6F767E', fontSize:'0.6rem'}}>{brumb}</div>
+                <div className='head-sub'>{brumb}</div>
               )}
             </div>
             

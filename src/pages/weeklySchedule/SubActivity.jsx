@@ -62,8 +62,8 @@ const SubActivity = () => {
                     
                     </div>
                 </Col>
-                <Col sm={0} md={0} lg={5}></Col>
-                <Col sm={6} md={4} lg={3}>
+                <Col sm={0} md={0} lg={6}></Col>
+                <Col sm={6} md={4} lg={2}>
                     <div className='d-flex text-right-spec'>
                         <SelectBox name="FLOOR" options={['FLOOR', 'OVERTIME']} changeOption={(option) => {setSelectedOption(option)} } />
                     </div>
@@ -81,7 +81,7 @@ const SubActivity = () => {
                             <th>SUB ACTIVITY</th>
                             <th className='text-center'>ORDER</th>
                             <th>FEATURED</th>
-                            <th>NOTE</th>
+                            <th className='note-td'>NOTE</th>
                             <th className='col-action text-center'>ACTION</th>
                         </tr>
                     </thead>

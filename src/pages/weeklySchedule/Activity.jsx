@@ -74,7 +74,7 @@ const Activity = () => {
                 </Col>
             </Row>
             <Row>
-                <Col lg={9} md={12} sm={12}>
+                <Col lg={12} md={12} sm={12}>
                 <table className='table table-hover border-table table-even-odd'>
                     <thead>
                         <tr>
@@ -85,7 +85,7 @@ const Activity = () => {
                             <th>PLOT HOUR</th>
                             <th className='color-td'>COLOUR</th>
                             <th className='text-center'>ORDER</th>
-                            <th>NOTE</th>
+                            <th className='note-td'>NOTE</th>
                             <th className='col-action text-center'>ACTION</th>
                         </tr>
                     </thead>

@@ -10,7 +10,7 @@ const TeamsSchedule = (props) => {
             <Row>
                 <Col sm={0} md={2} lg={4}></Col>
                 <Col sm={12} md={8} lg={4} style={{padding:'1rem'}}>
-                    <div className=''><img style={{width:'80%', height:'5rem'}} src={companyLogo} alt=""/></div>
+                    <div className=''><img style={{width:'80%', height:'6rem'}} src={companyLogo} alt=""/></div>
                     <div className='team-title'>Team Schedule</div>
                     <Input label={'EMPLOYEE ID'} type="text" placeholder={'Please enter your employee ID'} />
                     <div className='d-flex' style={{marginTop:'1rem', marginBottom:'1rem', paddingLeft:'10%'}}>

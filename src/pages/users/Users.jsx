@@ -110,7 +110,7 @@ const Users = () => {
                 </Col>
             </Row>
             <Row>
-                <Col lg={12} md={12} sm={12}>
+                <Col lg={8} md={12} sm={12}>
                 <table className='table table-hover border-table table-even-odd'>
                     <thead>
                         <tr>

@@ -81,7 +81,7 @@ const PublicHolidays = () => {
                 </Col>
             </Row>
             <Row>
-                <Col lg={9} md={12} sm={12}>
+                <Col lg={6} md={12} sm={12}>
                 <table className='table table-hover border-table table-even-odd'>
                     <thead>
                         <tr>

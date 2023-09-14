@@ -134,7 +134,7 @@ const MakeRole = () => {
                         {role_data.map(item => {
                             return(
                                 <tr>
-                                    <td>{item.name}</td>
+                                    <td style={{fontWeight:'bold'}}>{item.name}</td>
                                     <td className='text-center'>
                                         <FormCheck
                                             checked={item.view}

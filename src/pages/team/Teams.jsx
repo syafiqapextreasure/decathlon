@@ -227,15 +227,13 @@ const Teams = () => {
                         <Button variant="" className='sort-button'><SortIcon/><ArrowUpward className='arrow-icon'/>&nbsp;&nbsp;Sort&nbsp;&nbsp;<ExpandMore/></Button>
                     </div>
                 </Col>
-                <Col sm={12} md={12} lg={5}>
+                <Col sm={12} md={12} lg={6}>
                     <div className='d-flex'>
                         <SelectBox name="Select State" options={['Option 1', 'Option 2', 'Option 3']} />
                         <SelectBox name="Select Store" options={['Option 1', 'Option 2', 'Option 3']} />
                         <SelectBox name="Select Department" options={['Option 1', 'Option 2', 'Option 3']} />
+                        <Button variant="primary">RESET</Button>
                     </div>
-                </Col>
-                <Col sm={6} md={4} lg={1}>
-                <Button variant="primary">RESET</Button>
                 </Col>
             </Row>
             <Row>
@@ -250,8 +248,8 @@ const Teams = () => {
                             <th>START DATE</th>
                             <th>EMPLOYEE CLASS</th>
                             <th>DESIGNATION</th>
-                            <th>BLACKLIST</th>
-                            <th>STATUS</th>
+                            <th style={{width:'10rem'}}>BLACKLIST</th>
+                            <th style={{width:'10rem'}}>STATUS</th>
                             <th className='col-action text-center'>ACTION</th>
                         </tr>
                     </thead>
@@ -286,7 +284,7 @@ const Teams = () => {
                         <Pagination
                             items={team_data}
                             onChangePage={(items, obj_data) => {changePage(items, obj_data)}}
-                            pageSize = {5}
+                            pageSize = {10}
                         />
                     </Col>
                 </Row>

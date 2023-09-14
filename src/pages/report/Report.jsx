@@ -249,7 +249,7 @@ const Report = () => {
                         <tr>
                             <th className='col-no text-center'>NO.</th>
                             <th>EMPLOYEE ID</th>
-                            <th>NAME</th>
+                            <th style={{width:'20rem'}}>NAME</th>
                             <th>GENDER</th>
                             <th>START DATE</th>
                             <th>EMPLOYEE CLASS</th>
@@ -293,7 +293,7 @@ const Report = () => {
                         <Pagination
                             items={user_data}
                             onChangePage={(items, obj_data) => {changePage(items, obj_data)}}
-                            pageSize = {5}
+                            pageSize = {10}
                         />
                     </Col>
                 </Row>

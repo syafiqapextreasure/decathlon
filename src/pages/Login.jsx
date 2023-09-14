@@ -12,7 +12,7 @@ const Login = (props) => {
             <Row>
                 <Col sm={0} md={2} lg={4}></Col>
                 <Col sm={12} md={8} lg={4} style={{padding:'1rem'}}>
-                    <div className=''><img style={{width:'80%', height:'5rem'}} src={companyLogo} alt=""/></div>
+                    <div className=''><img style={{width:'80%', height:'7rem'}} src={companyLogo} alt=""/></div>
                     <div className='login-title'>User Login</div>
                     <Input placeholder={'Please enter your e-mail'} label={'E-MAIL'} type="email" />
                     <div style={{position:'relative'}}>
