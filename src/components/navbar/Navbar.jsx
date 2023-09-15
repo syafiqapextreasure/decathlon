@@ -4,7 +4,7 @@ import { NotificationsNoneOutlined, KeyboardArrowDownOutlined, LogoutOutlined} f
 import Mobilemenu from "./Mobilemenu";
 import "./navbar.scss";
 import ChangePasswordModal from "../modal/ChangePasswordModal";
-
+import notificationbell from "../../asset/Notification.png";
 // import avatar_img from "../../asset/replace_img.png";
 
 const Navbar = (props) => {
@@ -53,7 +53,8 @@ const Navbar = (props) => {
             
           </div>
           <div className="userInfo">
-              <NotificationsNoneOutlined/>
+              {/* <NotificationsNoneOutlined/> */}
+              <img src={notificationbell} alt='' />
               {/* <div className="image">
               <img src={avatar_img} alt="" className='image' />
               </div> */}

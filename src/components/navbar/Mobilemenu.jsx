@@ -3,6 +3,14 @@ import "./mobilemenu.scss";
 import { Link, useLocation } from 'react-router-dom';
 import {ExpandLess, ExpandMore, AssignmentOutlined, CalendarMonthOutlined, DescriptionOutlined, GridViewOutlined, LogoutOutlined, PeopleAltOutlined, PersonOutlined, SettingsOutlined, TextSnippet } from '@mui/icons-material';
 import {List, Collapse, ListItemText} from "@mui/material";
+import dashboardicon from '../../asset/dashboard.png';
+import teamicon from '../../asset/team.png';
+import settingicon from '../../asset/uil_setting.png';
+import calendaricon from '../../asset/Calendar.png';
+import groupicon from '../../asset/Group.png';
+import reporticon from '../../asset/carbon_report.png';
+import unionicon from '../../asset/Union.png';
+import emergenceicon from '../../asset/Emergence.png';
 
 const Mobilemenu = () => {
     const [openTeamSub, setOpenTeamSub] = useState(false);
@@ -35,13 +43,15 @@ const Mobilemenu = () => {
             <List component="ul">
             <Link to='/' style={{ textDecoration: 'none' }}>
                 <li className={isActive('/') ? 'active' : ''}>
-                <GridViewOutlined className='icon' />
+                {/* <GridViewOutlined className='icon' /> */}
+                <img src={dashboardicon} className='icon' alt=""/>
                 <ListItemText primary="Dashboard" />
                 </li>
             </Link>
             
             <li onClick={ () => {setOpenWeekSub(!openWeekSub)}}>
-                <DescriptionOutlined className='icon' />
+                {/* <DescriptionOutlined className='icon' /> */}
+                <img src={groupicon} className='icon' alt=""/>
                 <ListItemText primary="Weekly Schedule" />
                 {openWeekSub ? <ExpandLess /> : <ExpandMore />}
             </li>
@@ -66,7 +76,8 @@ const Mobilemenu = () => {
             </Collapse>
 
             <li onClick={ () => {setOpenAnnualSub(!openAnnualSub)}}>
-                <TextSnippet className='icon'/>
+                {/* <TextSnippet className='icon'/> */}
+                <img src={unionicon} className='icon' alt=""/>
                 <ListItemText primary="Annual Schedule" />
                 {openAnnualSub ? <ExpandLess /> : <ExpandMore />}
             </li>
@@ -86,7 +97,8 @@ const Mobilemenu = () => {
             </Collapse>
             
             <li onClick={ () => {setOpenStoreSub(!openStoreSub)}}>
-                <CalendarMonthOutlined className='icon' />
+                {/* <CalendarMonthOutlined className='icon' /> */}
+                <img src={calendaricon} className='icon' alt=""/>
                 <span>Store</span>
                 {openStoreSub ? <ExpandLess /> : <ExpandMore />}
             </li>
@@ -110,7 +122,8 @@ const Mobilemenu = () => {
                 </List>
             </Collapse>
             <li onClick={() => setOpenTeamSub(!openTeamSub)}>
-                <PeopleAltOutlined className='icon' />
+                {/* <PeopleAltOutlined className='icon' /> */}
+                <img src={teamicon} className='icon' alt=""/>
                 <span>Team</span>
                 {openTeamSub ? <ExpandLess /> : <ExpandMore />}
             </li>
@@ -129,7 +142,8 @@ const Mobilemenu = () => {
                 </List>
             </Collapse>
             <li onClick={ () => {setOpenUserSub(!openUserSub)}}>
-                <PersonOutlined className='icon' />
+                {/* <PersonOutlined className='icon' /> */}
+                <img src={emergenceicon} className='icon' alt=""/>
                 <span>User</span>
                 {openUserSub ? <ExpandLess /> : <ExpandMore />}
             </li>
@@ -149,13 +163,15 @@ const Mobilemenu = () => {
             </Collapse>
             <Link to='/Report' style={{ textDecoration: 'none' }}>
                 <li className={isActive('/Report') ? 'active' : ''}>
-                <AssignmentOutlined className='icon' />
+                {/* <AssignmentOutlined className='icon' /> */}
+                <img src={reporticon} className='icon' alt=""/>
                 <span>Report</span>
                 </li>
             </Link>
             <Link to='/Settings' style={{ textDecoration: 'none' }}>
                 <li className={isActive('/Settings') ? 'active' : ''}>
-                <SettingsOutlined className='icon' />
+                {/* <SettingsOutlined className='icon' /> */}
+                <img src={settingicon} className='icon' alt=""/>
                 <span>Settings</span>
                 </li>
             </Link>
