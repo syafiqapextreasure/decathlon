@@ -54,7 +54,7 @@ const Navbar = (props) => {
           </div>
           <div className="userInfo">
               {/* <NotificationsNoneOutlined/> */}
-              <img src={notificationbell} alt='' />
+              <img src={notificationbell} alt='' style={{width:'1.8rem'}} />
               {/* <div className="image">
               <img src={avatar_img} alt="" className='image' />
               </div> */}
